@@ -76,7 +76,7 @@ export class ModelComponent implements OnInit, AfterViewInit {
   private createControls = () => {
     const renderer = new CSS2DRenderer();
     //renderer.setSize(30, 100);
-    renderer.setSize(this.vhTOpx(200), this.vhTOpx(30));
+    renderer.setSize(this.vhTOpx(200), this.vhTOpx(50));
     renderer.domElement.style.position = 'absolute';
     renderer.domElement.style.top = '55px';
     renderer.domElement.className = "controllers";
