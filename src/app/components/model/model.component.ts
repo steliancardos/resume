@@ -1,9 +1,8 @@
-import { Component, OnInit, AfterViewInit, Input, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, ViewChild, ElementRef, HostListener } from '@angular/core';
 import * as THREE from "three";
 import { GLTFLoader, GLTF } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { CSS2DRenderer } from 'three/examples/jsm/renderers/CSS2DRenderer.js';
-
 @Component({
   selector: 'app-model',
   templateUrl: './model.component.html',
@@ -17,11 +16,11 @@ export class ModelComponent implements OnInit, AfterViewInit {
 
   //* Stage Properties
 
-  @Input() public fieldOfView: number = 1;
+  @Input() public fieldOfView: number = 2;
 
-  @Input('nearClipping') public nearClippingPane: number = 1;
+  @Input('nearClipping') public nearClippingPane: number = 2;
 
-  @Input('farClipping') public farClippingPane: number = 1000;
+  @Input('farClipping') public farClippingPane: number = 3000;
 
   //? Scene properties
   //? Scene properties
@@ -76,9 +75,11 @@ export class ModelComponent implements OnInit, AfterViewInit {
    */
   private createControls = () => {
     const renderer = new CSS2DRenderer();
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    //renderer.setSize(30, 100);
+    renderer.setSize(this.vhTOpx(200), this.vhTOpx(30));
     renderer.domElement.style.position = 'absolute';
-    renderer.domElement.style.top = '0px';
+    renderer.domElement.style.top = '55px';
+    renderer.domElement.className = "controllers";
     document.body.appendChild(renderer.domElement);
     this.controls = new OrbitControls(this.camera, renderer.domElement);
     this.controls.autoRotate = true;
@@ -87,6 +88,17 @@ export class ModelComponent implements OnInit, AfterViewInit {
     this.controls.update();
   };
 
+  vhTOpx(value: number) : number {
+    var w = window,
+      d = document,
+      e = d.documentElement,
+      g = d.getElementsByTagName('body')[0],
+      x = w.innerWidth || e.clientWidth || g.clientWidth,
+      y = w.innerHeight|| e.clientHeight|| g.clientHeight;
+
+    var result = (y*value)/100;
+    return result;
+  }
   /**
    * Create the scene
    *
@@ -96,10 +108,9 @@ export class ModelComponent implements OnInit, AfterViewInit {
   private createScene() {
     //* Scene
     this.scene = new THREE.Scene();
-    this.scene.background = new THREE.Color(0xd4d4d8)
-    this.loaderGLTF.load('assets/robot/scene.gltf', (gltf: GLTF) => {
+    this.scene.background = new THREE.Color(255,255,255);
+    this.loaderGLTF.load('assets/office-worker/scene.gltf', (gltf: GLTF) => {
       this.model = gltf.scene.children[0];
-      console.log(this.model);
       var box = new THREE.Box3().setFromObject(this.model);
       box.getCenter(this.model.position); // this re-sets the mesh position
       this.model.position.multiplyScalar(-1);
@@ -115,7 +126,7 @@ export class ModelComponent implements OnInit, AfterViewInit {
     )
     this.camera.position.x = 100;
     this.camera.position.y = 100;
-    this.camera.position.z = 100;
+    this.camera.position.z = 300;
     this.ambientLight = new THREE.AmbientLight(0x00000, 100);
     this.scene.add(this.ambientLight);
     this.directionalLight = new THREE.DirectionalLight(0xffdf04, 0.4);
@@ -155,7 +166,7 @@ export class ModelComponent implements OnInit, AfterViewInit {
     let component: ModelComponent = this;
     (function render() {
       component.renderer.render(component.scene, component.camera);
-      component.animateModel();
+       component.animateModel();
       requestAnimationFrame(render);
     }());
   }
