@@ -7,12 +7,8 @@ import { SharedService } from 'src/app/services/shared.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private sharedService:SharedService) { }
+  constructor() { }
 
   ngOnInit(): void {
-  }
-  loadComponent(component: number): void {
-    this.sharedService.componentId = component;
-    this.sharedService.sendClickEvent();
   }
 }
