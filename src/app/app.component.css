@@ -6,3 +6,21 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+  
+.grid-container {
+  display: grid;
+  grid-template-columns: auto 80% auto;
+  gap: 10px;
+  padding: 10px;
+}
+
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px;
+  font-size: 30px;
+}
+.center {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+}
