@@ -1,0 +1,37 @@
+.grid-container{
+    display: grid;
+     grid-template-columns: 50% 50%;
+}
+
+.grid-item{
+    border-bottom: 2px solid lightgray;
+    border-top: 2px solid lightgray;
+    margin: 0.5em;
+}
+
+.work-container{
+    display: grid;
+    grid-template-columns:minmax(2%,auto) 1fr;
+}
+.work-details-container{
+    display: grid;
+    grid-template-columns: auto ;
+}
+
+.full-column{
+    grid-column: 1/ span 2;
+}
+
+.company-icon{
+    width: -webkit-fill-available;
+    padding: 1em;
+}
+@media only screen and (max-width: 600px) {
+    .work-container{
+        display: grid;
+        grid-template-columns:minmax(10%,auto) 1fr;
+    }
+    .grid-container{
+        grid-template-columns: none;
+    }
+}

@@ -75,10 +75,10 @@ export class ModelComponent implements OnInit, AfterViewInit {
    */
   private createControls = () => {
     const renderer = new CSS2DRenderer();
-    //renderer.setSize(30, 100);
-    renderer.setSize(this.vhTOpx(200), this.vhTOpx(40));
+    renderer.setSize(this.vhTOpx(40), this.vhTOpx(40));
     renderer.domElement.style.position = 'absolute';
     renderer.domElement.style.top = '55px';
+    renderer.domElement.style.width = '100%';
     renderer.domElement.className = "controllers";
     document.body.appendChild(renderer.domElement);
     this.controls = new OrbitControls(this.camera, renderer.domElement);

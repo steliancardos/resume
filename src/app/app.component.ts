@@ -1,4 +1,4 @@
-import { Component, ComponentFactoryResolver, ViewChild, ViewContainerRef } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ContactComponent } from './components/contact/contact.component';
 import { ExperienceComponent } from './components/experience/experience.component';
@@ -10,7 +10,7 @@ import { SharedService } from './services/shared.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
 
   clickEventsubscription: Subscription = new Subscription;
   
@@ -18,10 +18,15 @@ export class AppComponent {
   
   @ViewChild("container", { read: ViewContainerRef  }) container!: ViewContainerRef ;
 
-  constructor(private resolver: ComponentFactoryResolver, private sharedService:SharedService) {
+  constructor(private resolver: ComponentFactoryResolver, private sharedService:SharedService, private ref: ChangeDetectorRef) {
     this.clickEventsubscription=    this.sharedService.getClickEvent().subscribe(()=>{
-      this.loadComponent();  
+      //this.loadComponent();  
     });
+  }
+  ngAfterViewInit(): void {
+    this.sharedService.componentId = 2;
+    this.loadComponent();  
+    this.ref.detectChanges();
   }
 
   loadComponent(){

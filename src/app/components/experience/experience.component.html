@@ -1,1 +1,37 @@
-<p>experience works!</p>
+<div class="grid-container">
+    <div class="grid-item" *ngFor="let workExperience of workExperiences">
+        <div class="work-container">
+            <div>
+                <img src="{{workExperience.iconPath}}" class="company-icon">
+            </div>
+            <div>
+                <div class="work-container ">
+                    <div class="work-details-container full-column">
+                        <div>
+                            <h3>{{workExperience.name}}</h3>
+                        </div>
+                        <div>
+                            <h6>{{workExperience.startDate}} - {{workExperience.endDate}}</h6> 
+                        </div>
+                    </div>
+                    <div class="full-column">
+                        <h6>Location: {{workExperience.location}}</h6> 
+                    </div>
+                    <div class="full-column">
+                        <h6>Role: {{workExperience.role}}</h6> 
+                    </div>
+                </div>
+            </div>
+            <div class="full-column">
+                <h3>Description</h3>
+                <h6>{{workExperience.jobDescription}}</h6>
+            </div>
+            <div class="full-column">
+                <h3>Technology stack</h3>
+                <ul *ngFor="let tech of workExperience.tehnology">
+                    <li>{{tech}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { DataService } from 'src/app/services/data.service';
+import { WorkPlace } from '../../models/WorkPlace';
 
 @Component({
   selector: 'app-experience',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExperienceComponent implements OnInit {
 
-  constructor() { }
+  workExperiences!: WorkPlace[];
 
-  ngOnInit(): void {
+  constructor(private data: DataService) {
+    this.workExperiences = [];
+   }
+
+  ngOnInit(): void { 
+    this.workExperiences = this.data.getExperience();
   }
-
 }

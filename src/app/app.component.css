@@ -9,7 +9,7 @@
   
 .grid-container {
   display: grid;
-  grid-template-columns: auto 80% auto;
+  grid-template-columns: auto 90% auto;
   gap: 10px;
   padding: 10px;
 }
