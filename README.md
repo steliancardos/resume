@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Professional Resume Website
+
+A modern, responsive resume/portfolio website built with Next.js, TypeScript, and Tailwind CSS.
+
+## Features
+
+- ✨ Modern gradient design with dark theme
+- 📱 Fully responsive layout
+- 🎨 Beautiful UI components using Tailwind CSS
+- ⚡ Fast performance with Next.js
+- 🔍 SEO optimized
+- 📧 Contact section with social media links
+- 🎯 Smooth scrolling navigation
+
+## Sections
+
+- **About**: Introduction and call-to-action buttons
+- **Experience**: Work history with company details and achievements
+- **Skills**: Categorized technical skills (Frontend, Backend, Tools & Platforms)
+- **Projects**: Featured projects with descriptions and tech stacks
+- **Contact**: Multiple ways to get in touch
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+ 
+- npm or yarn
+
+### Installation
+
+```bash
+# Install dependencies
+npm install
+```
+
+### Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## Customization
 
-To learn more about Next.js, take a look at the following resources:
+To personalize this resume website:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Basic Info**: Update name, title, and email in [app/page.tsx](app/page.tsx#L1)
+2. **Experience**: Edit work history entries in the Experience section
+3. **Skills**: Customize skill categories and items
+4. **Projects**: Add your own projects with descriptions and links
+5. **Social Links**: Update GitHub, LinkedIn, and email in the Contact section
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Technologies Used
 
-## Deploy on Vercel
+- [Next.js 16](https://nextjs.org) - React framework
+- [TypeScript](https://www.typescriptlang.org) - Type-safe JavaScript
+- [Tailwind CSS](https://tailwindcss.com) - Utility-first CSS
+- [Lucide React](https://lucide.dev) - Icon library
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Deploy on Vercel (Recommended)
+
+The easiest way to deploy is using [Vercel](https://vercel.com):
+
+```bash
+npm install -g vercel
+vercel
+```
+
+### Other Platforms
+
+You can also deploy on:
+- Netlify
+- GitHub Pages
+- AWS Amplify
+- Any Node.js hosting
+
+## License
+
+This project is open source and available under the MIT License.
